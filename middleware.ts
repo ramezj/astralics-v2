@@ -11,21 +11,20 @@ export const getValidSubdomain = (host?: string | null) => {
       host = window.location.host;
     }
     if (host && host.includes('.')) {
-      const candidate = host.split('.')[0];
-      if (candidate && !candidate.includes('localhost')) {
-        // Valid candidate
-        subdomain = candidate;
+        const parts = host.split('.');
+        const candidate = parts[0];
+        // Check that the domain has more than one part and exclude common subdomains
+        if (candidate && parts.length > 1 && !['www', 'localhost'].includes(candidate)) {
+          subdomain = candidate;
+        }
       }
-    }
     return subdomain;
   };
 export async function middleware(req: NextRequest) {
   // Clone the URL
   const url = req.nextUrl.clone();
-
   // Skip public files
   if (PUBLIC_FILE.test(url.pathname) || url.pathname.includes('_next')) return;
-
   const host = req.headers.get('host');
   const subdomain = getValidSubdomain(host);
   if (subdomain) {
