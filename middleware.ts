@@ -10,13 +10,17 @@ export const getValidSubdomain = (host?: string | null) => {
       // On client side, get the host from window
       host = window.location.host;
     }
+    if(host === 'localhost:3000' || host === 'https://astralics.com') {
+        return;
+    }
     if (host && host.includes('.')) {
         const parts = host.split('.');
+        console.log('PARTS :', parts);
         const candidate = parts[0];
         console.log('HOST :', host);
         console.log('CANDIDATE :', candidate)
         // Check that the domain has more than one part and exclude common subdomains
-        if (candidate && parts.length > 1 && !['www', 'localhost', 'astralics'].includes(candidate)) {
+        if (candidate && parts.length > 1 && !['www', 'localhost'].includes(candidate)) {
           subdomain = candidate;
         }
       }
