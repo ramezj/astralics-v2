@@ -13,8 +13,10 @@ export const getValidSubdomain = (host?: string | null) => {
     if (host && host.includes('.')) {
         const parts = host.split('.');
         const candidate = parts[0];
+        console.log('HOST :', host);
+        console.log('CANDIDATE :', candidate)
         // Check that the domain has more than one part and exclude common subdomains
-        if (candidate && parts.length > 1 && !['www', 'localhost'].includes(candidate)) {
+        if (candidate && parts.length > 1 && !['www', 'localhost', 'astralics'].includes(candidate)) {
           subdomain = candidate;
         }
       }
