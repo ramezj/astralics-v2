@@ -10,7 +10,7 @@ export const getValidSubdomain = (host?: string | null) => {
       // On client side, get the host from window
       host = window.location.host;
     }
-    if(host === 'localhost:3000' || host === 'https://astralics.com') {
+    if(host === 'localhost:3000' || host === 'astralics.com') {
         return;
     }
     if (host && host.includes('.')) {
