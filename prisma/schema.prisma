@@ -1,0 +1,87 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+ 
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Account {
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@id([provider, providerAccountId])
+}
+ 
+model User {
+  id            String          @id @default(cuid())
+  name          String?
+  email         String          @unique
+  isFirstTimeUser Boolean @default(true)
+  emailVerified DateTime?
+  image         String?
+  accounts      Account[]
+  sessions      Session[]
+  pages        Page[]
+  itemVotes     itemVote[]
+  feedback      Feedback[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+ 
+model Session {
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+ 
+model VerificationToken {
+  identifier String
+  token      String
+  expires    DateTime
+  @@id([identifier, token])
+}
+model Page {
+  id        String     @id @default(cuid())
+  subdomain String @unique
+  name      String?
+  website   String     @default("")
+  userId    String
+  user      User       @relation(fields: [userId], references: [id])
+  feedbacks Feedback[]
+}
+model Feedback {
+  id        String   @id @default(cuid())
+  title String
+  description      String
+  createdAt DateTime @default(now())
+  type String @default("other")
+  userId    String
+  user      User       @relation(fields: [userId], references: [id])
+  pageId   String
+  page     Page    @relation(fields: [pageId], references: [id])
+  itemVotes itemVote[]
+}
+model itemVote {
+  id            String    @id @default(cuid())
+  feedbackId String
+  feedback Feedback? @relation(fields: [feedbackId], references: [id])
+  userId    String
+  user      User?       @relation(fields: [userId], references: [id])
+}
+
