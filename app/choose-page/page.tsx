@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { CreateNewPage } from "@/components/shared/CreateNewPage";
+import { SquareArrowOutUpRight } from "lucide-react";
 
 export const metadata: Metadata = {
     title: "Astralics | Choose Page",
@@ -32,9 +33,10 @@ export default async function Page() {
             {pages.pages?.map((page:Page) => {
                 return (
                     <>
-                    <Button variant="outline" asChild className="w-[90%]">
+                    <Button variant="outline" asChild className="w-full">
                         <Link href={`/overview/${page.id}`}>
                             {page.name}
+                            {/* <SquareArrowOutUpRight className="w-4 h-4 ml-2"/> */}
                         </Link>
                     </Button>
                     </>
