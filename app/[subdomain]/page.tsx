@@ -1,3 +1,10 @@
-export default function Page({ params }: { params: { subdomain: string } }) {
-    return <div>Sub : {params.subdomain}</div>
+import { GetPageBySubdomain } from "@/actions/page/GetPageBySubdomain"
+
+export default async function Page({ params }: { params: { subdomain: string } }) {
+    const page = await GetPageBySubdomain(params.subdomain);
+    return (
+      <>
+      {JSON.stringify(page)}
+      </>
+    )
   }

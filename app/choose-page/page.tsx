@@ -6,7 +6,7 @@ import { GetUser } from "@/actions/user/GetUser";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Plus } from "lucide-react";
+import { CreateNewPage } from "@/components/shared/CreateNewPage";
 
 export const metadata: Metadata = {
     title: "Astralics | Choose Page",
@@ -40,12 +40,7 @@ export default async function Page() {
                     </>
                 )
             })}
-            <Button asChild className="w-[90%]">
-                <Link href='/create'>
-                <Plus className="w-4 h-4 mr-2"/>
-                    Create New Page
-                </Link>
-            </Button>
+            <CreateNewPage />
             </CardContent>
         </Card>
         </div>
