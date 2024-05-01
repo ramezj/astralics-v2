@@ -7,6 +7,7 @@ export default async function Home() {
   return (
     <>
     <Navigation session={session}/>
+    <br />
     <h1 className="font-bold text-2xl">Hello World, This is NOT a Subdomain.</h1>
     </>
   );
