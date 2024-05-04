@@ -37,7 +37,7 @@ export function CreateNewPage() {
                 <div className="grid gap-5">
                 <div className="grid gap-3">
                     <Label className="text-left">Name</Label>
-                    <Input placeholder="Astralics 🚀" required value={name} onChange={((e) => {setName(e.target.value)})} />
+                    <Input placeholder="astralics " required value={name} onChange={((e) => {setName(e.target.value)})} />
                 </div>
                 <div className="grid gap-3">
                     <Label className="text-left">Slug</Label>
