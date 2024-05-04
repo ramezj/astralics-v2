@@ -13,8 +13,9 @@ export default async function Home() {
   return (
     <>
     <Navigation session={session}/>
-    <br />
-    <h1 className="font-bold text-2xl">Hello World, This is NOT a Subdomain.</h1>
+    <div className="text-center w-full py-6">
+      <h1 className="font-bold text-2xl">Feedback at your fingertips.</h1>
+    </div>
     </>
   );
 }
