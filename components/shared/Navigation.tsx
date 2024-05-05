@@ -2,6 +2,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { ThemeToggle } from "./ThemeToggle"
 
 
 export function Navigation(props:any) {
@@ -74,6 +75,7 @@ export function Navigation(props:any) {
         <div className="flex w-full items-center gap-4 md:ml-auto md:gap-2 lg:gap-4 ">
           <div className="ml-auto flex-1 sm:flex-initial">
           </div>
+          <ThemeToggle />
           {
             props.session 
             ? 
