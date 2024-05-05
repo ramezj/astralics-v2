@@ -72,7 +72,7 @@ export function Navigation(props:any) {
             </nav>
           </SheetContent>
         </Sheet>
-        <div className="flex w-full items-center gap-4 md:ml-auto md:gap-2 lg:gap-4 ">
+        <div className="flex w-full items-center gap-3 md:ml-auto">
           <div className="ml-auto flex-1 sm:flex-initial">
           </div>
           <ThemeToggle />
@@ -80,7 +80,7 @@ export function Navigation(props:any) {
             props.session 
             ? 
             <>
-                <Button asChild>
+                <Button variant="outline" asChild>
                   <Link href='/choose-page'>
                   Dashboard
                   </Link>
@@ -89,7 +89,7 @@ export function Navigation(props:any) {
             
             :
             <>
-                <Button asChild>
+                <Button variant="outline" asChild>
                   <Link href='/login'>
                   Get Started
                   </Link>
