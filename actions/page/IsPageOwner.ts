@@ -2,12 +2,12 @@
 import prisma from "@/lib/database";
 import { auth } from "@/auth";
 
-export async function IsPageOwner(subdomain: string) {
+export async function IsPageOwner(slug: string) {
     const session = await auth();
     try {
         const page = await prisma.page.findFirst({
             where: {
-                subdomain:subdomain
+                slug:slug
             },
             include: {
                 feedbacks: true

@@ -2,11 +2,11 @@
 import prisma from "@/lib/database";
 import { auth } from "@/auth";
 
-export async function GetPageBySubdomain(subdomain: string) {
+export async function GetPageBySubdomain(slug: string) {
     try {
         const page = await prisma.page.findFirst({
             where: {
-                subdomain:subdomain
+                slug:slug
             },
             include: {
                 feedbacks: true

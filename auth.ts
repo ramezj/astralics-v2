@@ -8,8 +8,9 @@ const useSecureCookies = !!process.env.NEXT_URL
 export const { auth, handlers, signIn, signOut } = NextAuth({
   adapter: PrismaAdapter(prisma),
   pages: { 
+    signIn: '/login'
     // change test so user creates new page.
-    newUser: '/test'
+    // newUser: '/test'
   },
   providers: [
     Google({
@@ -27,18 +28,6 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
   secret:process.env.AUTH_SECRET,
   session: {
     strategy: 'jwt',
-  },
-  cookies: {
-    sessionToken: {
-      name: `${useSecureCookies ? '__Secure-' : ''}next-auth.session-token`,
-      options: {
-        httpOnly: true,
-        sameSite: 'lax',
-        path: '/',
-        domain: '.astralics.com',
-        secure: useSecureCookies,
-      },
-    },
   },
   trustHost: true,
   callbacks: {
