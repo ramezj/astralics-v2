@@ -41,7 +41,7 @@ export function CreateNewPage() {
                 </div>
                 <div className="grid gap-3">
                     <Label className="text-left">Slug</Label>
-                    <Input placeholder="slug.astralics.com" required value={subdomain} onChange={((e) => {setSubdomain(e.target.value)})}/>
+                    <Input placeholder="astralics.com/slug" required value={subdomain} onChange={((e) => {setSubdomain(e.target.value)})}/>
                 </div>
                 <div className="grid gap-3">
                     <Label className="text-left">Website</Label>

@@ -34,7 +34,7 @@ export default async function Page() {
                 return (
                     <>
                     <Button variant="outline" asChild className="w-full">
-                        <Link href={`/overview/${page.id}`}>
+                        <Link href={`/${page.slug}/overview`}>
                             {page.name}
                             {/* <SquareArrowOutUpRight className="w-4 h-4 ml-2"/> */}
                         </Link>
