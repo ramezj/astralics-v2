@@ -30,7 +30,7 @@ export default async function Page() {
                 <CardTitle className="align-middle text-center text-lg">Choose Your Page</CardTitle>
             </CardHeader>
             <CardContent className="items-center justify-center flex flex-col gap-4">
-            {pages.pages?.map((page:Page) => {
+            {pages.pages?.pages?.map((page:Page) => {
                 return (
                     <>
                     <Button variant="outline" asChild className="w-full">
