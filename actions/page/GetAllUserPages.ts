@@ -14,7 +14,7 @@ export async function GetAllUserPages() {
                 pages: true
             }
         });
-        return { pages: pages?.pages }
+        return { pages: pages }
     } catch (error) {
         return { error }
     }
