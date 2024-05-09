@@ -1,7 +1,7 @@
-import { GetPageBySubdomain } from "@/actions/page/GetPageBySubdomain"
+import { GetPageBySlug } from "@/actions/page/GetPageBySlug";
 
 export default async function Page({ params }: { params: { slug: string } }) {
-    const page = await GetPageBySubdomain(params.slug);
+    const page = await GetPageBySlug(params.slug);
     return (
       <>
       {JSON.stringify(page)}

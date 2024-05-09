@@ -39,11 +39,11 @@ export default function DashboardLayout({children, params} : any) {
           </div>
           <div className="flex-1 ">
             <nav className="grid items-start px-2 text-sm font-medium lg:px-4 gap-2">
-              <Link href={`/${params.slug}/overview`} className={`flex items-center gap-3 rounded-lg px-3 py-2 text-primary transition-all hover:text-primary hover:bg-muted/50 duration-200`}>
+              <Link href={`/p/${params.slug}/overview`} className={`flex items-center gap-3 rounded-lg px-3 py-2 text-primary transition-all hover:text-primary hover:bg-muted/50 duration-200`}>
                 <Home className="h-4 w-4" />
                 Overview
               </Link>
-              <Link href={`/${params.slug}/feedback`} className={`flex items-center gap-3 rounded-lg px-3 py-2 text-primary transition-all hover:text-primary bg-muted/50 duration-200`}>
+              <Link href={`/p/${params.slug}/feedback`} className={`flex items-center gap-3 rounded-lg px-3 py-2 text-primary transition-all hover:text-primary bg-muted/50 duration-200`}>
                 <MessageCircle className="h-4 w-4" />
                 Feedback
               </Link>
