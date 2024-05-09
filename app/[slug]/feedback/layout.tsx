@@ -1,4 +1,3 @@
-'use client'
 import Link from "next/link"
 import {
   Bell,
@@ -19,7 +18,6 @@ import {
   BanIcon,
   Radio
 } from "lucide-react"
-import { usePathname } from 'next/navigation'
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -30,11 +28,8 @@ import { Metadata } from "next"
 import { useState } from "react"
 import { Combobox } from "@/components/shared/combobox"
 
-export const dynamic = 'force-static'
-
-export default function DashboardLayout({ children }: Readonly<{ children: React.ReactNode;}>) {
-    const pathname = usePathname();
-    console.log(pathname);
+export default function DashboardLayout({children, params} : any) {
+  console.log(params);
   return (
     <div className="grid min-h-screen w-full md:grid-cols-[200px_1fr] lg:grid-cols-[250px_1fr]">
       <div className="hidden border-r md:block ">
@@ -44,23 +39,23 @@ export default function DashboardLayout({ children }: Readonly<{ children: React
           </div>
           <div className="flex-1 ">
             <nav className="grid items-start px-2 text-sm font-medium lg:px-4 gap-2">
-              <Link href="/overview" className={`${pathname.includes('/overview') ? 'bg-muted' : ''} flex items-center gap-3 rounded-lg px-3 py-2 text-primary transition-all hover:text-primary hover:bg-muted duration-200`}>
+              <Link href={`/${params.slug}/overview`} className={`flex items-center gap-3 rounded-lg px-3 py-2 text-primary transition-all hover:text-primary hover:bg-muted/50 duration-200`}>
                 <Home className="h-4 w-4" />
                 Overview
               </Link>
-              <Link href="/feedback" className={`${pathname.includes('/feedback') ? 'bg-muted' : ''} flex items-center gap-3 rounded-lg px-3 py-2 text-primary transition-all hover:text-primary hover:bg-muted duration-200`}>
+              <Link href={`/${params.slug}/feedback`} className={`flex items-center gap-3 rounded-lg px-3 py-2 text-primary transition-all hover:text-primary bg-muted/50 duration-200`}>
                 <MessageCircle className="h-4 w-4" />
                 Feedback
               </Link>
-              <Link href="/ideas" className={`${pathname.includes('/ideas') ? 'bg-muted' : ''} flex items-center gap-3 rounded-lg px-3 py-2 text-primary transition-all hover:text-primary hover:bg-muted duration-200`}>
+              <Link href="/ideas" className={`flex items-center gap-3 rounded-lg px-3 py-2 text-primary transition-all hover:text-primary hover:bg-muted/50 duration-200`}>
               <Lightbulb className="h-4 w-4" />
                 Ideas
               </Link>
-              <Link href="/issues" className={`${pathname.includes('/issues') ? 'bg-muted' : ''} flex items-center gap-3 rounded-lg px-3 py-2 text-primary transition-all hover:text-primary hover:bg-muted duration-200`}>
+              <Link href="/issues" className={`flex items-center gap-3 rounded-lg px-3 py-2 text-primary transition-all hover:text-primary hover:bg-muted/50 duration-200`}>
               <BanIcon className="h-4 w-4" />
                 Issues
               </Link>
-              <Link href="/settings" className={`${pathname.includes('/settings') ? 'bg-muted' : ''} flex items-center gap-3 rounded-lg px-3 py-2 text-primary transition-all hover:text-primary hover:bg-muted duration-200`}>
+              <Link href="/settings" className={`flex items-center gap-3 rounded-lg px-3 py-2 text-primary transition-all hover:text-primary hover:bg-muted/50 duration-200`}>
               <Settings className="h-4 w-4" />
                 Settings
               </Link>
@@ -123,7 +118,7 @@ export default function DashboardLayout({ children }: Readonly<{ children: React
                 </Link>
                 </SheetClose>
                 <SheetClose asChild>
-                <Link href="/overview" className={`${pathname == '/overview' ? 'bg-muted text-foreground' : ' text-muted-foreground'} mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 hover:text-foreground`}>
+                {/* <Link href="/overview" className={`${pathname == '/overview' ? 'bg-muted text-foreground' : ' text-muted-foreground'} mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 hover:text-foreground`}>
                   <Home className="h-5 w-5" />
                   Overview
                 </Link>
@@ -150,7 +145,7 @@ export default function DashboardLayout({ children }: Readonly<{ children: React
                 <Link href="/settings" className={`${pathname == '/settings' ? 'bg-muted text-foreground' : ' text-muted-foreground'} mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 hover:text-foreground`}>
                   <Settings className="h-5 w-5" />
                   Settings
-                </Link>
+                </Link> */}
                 </SheetClose>
               </nav>
               <div className="mt-auto">
