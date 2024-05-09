@@ -14,7 +14,10 @@ export default async function Home() {
     <>
     <Navigation session={session}/>
     <div className="text-center w-full py-6">
-      <h1 className="font-bold text-2xl">Feedback at your fingertips.</h1>
+      <div className="py-8">
+        <h1 className="font-bold text-4xl">Collect Feedback.</h1>
+        <h1 className="font-bold text-4xl">Build Better Products.</h1>
+      </div>
     </div>
     </>
   );
