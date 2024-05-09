@@ -1,7 +1,8 @@
 export default function loading() {
     return (
-        <>
-        We are Loading!
-        </>
+        <div className="p-4">
+        <h1 className="font-bold text-3xl">Feedback</h1>
+        <p>Loading..</p>
+        </div>
     )
 }

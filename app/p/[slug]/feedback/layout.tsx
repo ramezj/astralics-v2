@@ -47,15 +47,15 @@ export default function DashboardLayout({children, params} : any) {
                 <MessageCircle className="h-4 w-4" />
                 Feedback
               </Link>
-              <Link href="/ideas" className={`flex items-center gap-3 rounded-lg px-3 py-2 text-primary transition-all hover:text-primary hover:bg-muted/50 duration-200`}>
+              <Link href={`/p/${params.slug}/ideas`} className={`flex items-center gap-3 rounded-lg px-3 py-2 text-primary transition-all hover:text-primary hover:bg-muted/50 duration-200`}>
               <Lightbulb className="h-4 w-4" />
                 Ideas
               </Link>
-              <Link href="/issues" className={`flex items-center gap-3 rounded-lg px-3 py-2 text-primary transition-all hover:text-primary hover:bg-muted/50 duration-200`}>
+              <Link href={`/p/${params.slug}/issues`} className={`flex items-center gap-3 rounded-lg px-3 py-2 text-primary transition-all hover:text-primary hover:bg-muted/50 duration-200`}>
               <BanIcon className="h-4 w-4" />
                 Issues
               </Link>
-              <Link href="/settings" className={`flex items-center gap-3 rounded-lg px-3 py-2 text-primary transition-all hover:text-primary hover:bg-muted/50 duration-200`}>
+              <Link href={`/p/${params.slug}/settings`} className={`flex items-center gap-3 rounded-lg px-3 py-2 text-primary transition-all hover:text-primary hover:bg-muted/50 duration-200`}>
               <Settings className="h-4 w-4" />
                 Settings
               </Link>

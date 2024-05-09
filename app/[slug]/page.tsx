@@ -4,7 +4,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
     const page = await GetPageBySlug(params.slug);
     return (
       <>
-      {JSON.stringify(page)}
+      <div>
+        <h1 className="font-bold text-2xl">{page.page?.name}</h1>
+      </div>
       </>
     )
   }
