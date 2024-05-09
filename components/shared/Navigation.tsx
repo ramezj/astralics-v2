@@ -75,7 +75,7 @@ export function Navigation(props:any) {
         <div className="flex w-full items-center gap-3 md:ml-auto">
           <div className="ml-auto flex-1 sm:flex-initial">
           </div>
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
           {
             props.session 
             ? 
@@ -89,9 +89,14 @@ export function Navigation(props:any) {
             
             :
             <>
+                  <Button variant="default" asChild>
+                  <Link href='/login'>
+                  Log In
+                  </Link>
+                  </Button>
                 <Button variant="outline" asChild>
                   <Link href='/login'>
-                  Get Started
+                  Try For Free
                   </Link>
                   </Button>
             </>
