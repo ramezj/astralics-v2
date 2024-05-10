@@ -1,3 +1,4 @@
+'use client'
 import Link from "next/link"
 import {
   Bell,
@@ -27,35 +28,43 @@ import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/s
 import { Metadata } from "next"
 import { useState } from "react"
 import { Combobox } from "@/components/shared/combobox"
+import { usePathname } from "next/navigation"
 
-export default function DashboardLayout({children, params} : any) {
-  console.log(params);
+function useLastPathSegment() {
+  const pathname = usePathname();
+  const segments = pathname.split('/');
+  return segments[segments.length - 1];  // Returns the last segment of the path
+}
+
+
+export default function DashboardLayout({children, params, req} : any) {
+  const path = useLastPathSegment();
   return (
     <div className="grid min-h-screen w-full md:grid-cols-[200px_1fr] lg:grid-cols-[250px_1fr]">
       <div className="hidden border-r md:block ">
         <div className="flex h-full max-h-screen flex-col gap-2 sticky top-0">
           <div className="flex h-16 items-center border-b px-4 lg:h-16 lg:px-6 text-left">
-           <span className="font-bold text-lg">astralics</span>
+          <span className="font-bold text-lg">astralics</span>
           </div>
           <div className="flex-1 ">
             <nav className="grid items-start px-2 text-sm font-medium lg:px-4 gap-2">
-              <Link href={`/p/${params.slug}/overview`} className={`flex items-center gap-3 rounded-lg px-3 py-2 text-primary transition-all hover:text-primary hover:bg-muted/50 duration-200`}>
+              <Link href={`/p/${params.slug}/overview`} className={`${path == 'overview' ? 'bg-muted/50 text-foreground' : ' text-muted-foreground'} flex items-center gap-3 rounded-lg px-3 py-2 text-primary transition-all hover:text-primary hover:bg-muted/50 duration-200`}>
                 <Home className="h-4 w-4" />
                 Overview
               </Link>
-              <Link href={`/p/${params.slug}/feedback`} className={`flex items-center gap-3 rounded-lg px-3 py-2 text-primary transition-all hover:text-primary hover:bg-muted/50 duration-200`}>
+              <Link href={`/p/${params.slug}/feedback`} className={`${path == 'feedback' ? 'bg-muted/50 text-foreground' : ' text-muted-foreground'} flex items-center gap-3 rounded-lg px-3 py-2 text-primary transition-all hover:text-primary hover:bg-muted/50 duration-200`}>
                 <MessageCircle className="h-4 w-4" />
                 Feedback
               </Link>
-              <Link href={`/p/${params.slug}/ideas`} className={`flex items-center gap-3 rounded-lg px-3 py-2 text-primary transition-all hover:text-primary hover:bg-muted/50 duration-200`}>
+              <Link href={`/p/${params.slug}/ideas`} className={`${path == 'ideas' ? 'bg-muted/50 text-foreground' : ' text-muted-foreground'} flex items-center gap-3 rounded-lg px-3 py-2 text-primary transition-all hover:text-primary hover:bg-muted/50 duration-200`}>
               <Lightbulb className="h-4 w-4" />
                 Ideas
               </Link>
-              <Link href={`/p/${params.slug}/issues`} className={`flex items-center gap-3 rounded-lg px-3 py-2 text-primary transition-all hover:text-primary bg-muted/50 duration-200`}>
+              <Link href={`/p/${params.slug}/issues`} className={`${path == 'issues' ? 'bg-muted/50 text-foreground' : ' text-muted-foreground'} flex items-center gap-3 rounded-lg px-3 py-2 text-primary transition-all hover:text-primary hover:bg-muted/50 duration-200`}>
               <BanIcon className="h-4 w-4" />
                 Issues
               </Link>
-              <Link href={`/p/${params.slug}/settings`} className={`flex items-center gap-3 rounded-lg px-3 py-2 text-primary transition-all hover:text-primary hover:bg-muted/50 duration-200`}>
+              <Link href={`/p/${params.slug}/settings`} className={`${path == 'settings' ? 'bg-muted/50 text-foreground' : ' text-muted-foreground'} flex items-center gap-3 rounded-lg px-3 py-2 text-primary transition-all hover:text-primary hover:bg-muted/50 duration-200`}>
               <Settings className="h-4 w-4" />
                 Settings
               </Link>
