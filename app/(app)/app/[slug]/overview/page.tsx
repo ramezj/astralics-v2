@@ -16,7 +16,7 @@ export default async function page( { params }: { params: { slug: string } }) {
     return (
         <div className="p-4">
         <h1 className="font-bold text-3xl">Overview</h1>
-        {JSON.stringify(page)}
+        <p>{JSON.stringify(page)}</p>
         </div>
     )
 }
