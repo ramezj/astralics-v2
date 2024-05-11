@@ -5,6 +5,7 @@ import { GoogleSignIn } from "@/components/shared/GoogleSignIn";
 import { GithubSignIn } from "@/components/shared/GithubSignIn";
 import { Navigation } from "@/components/shared/Navigation";
 import { auth } from "@/auth";
+import { Card } from "@/components/ui/card";
 
 export const metadata: Metadata = {
   title: "Astralics | Authentication",

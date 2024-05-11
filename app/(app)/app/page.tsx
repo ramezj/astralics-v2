@@ -8,6 +8,7 @@ import Link from "next/link";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { CreateNewPage } from "@/components/shared/CreateNewPage";
 import { SquareArrowOutUpRight } from "lucide-react";
+import { Separator } from "@/components/ui/separator";
 
 export const metadata: Metadata = {
     title: "Astralics | Choose Page",
@@ -21,30 +22,28 @@ export default async function Page() {
     const pages = await GetAllUserPages();
     return (
         <>
-        {/* {JSON.stringify(pages)} */}
-        <br />
-        <br />
-        <div className="w-full items-center flex justify-center">
-        <Card className="md:w-[30%] w-[90%]">
-            <CardHeader>
-                <CardTitle className="align-middle text-center text-lg">Choose Your Page</CardTitle>
-            </CardHeader>
-            <CardContent className="items-center justify-center flex flex-col gap-4">
+        <div className="flex items-center justify-center py-24">
+        <div className="mx-auto grid w-[350px] gap-6">
+          <div className="grid gap-2 text-center">
+            <h1 className="text-3xl font-bold">Choose Page</h1>
+          </div>
+          <div className="grid gap-4">
+            <div className="-mt-1">
+              <Separator />
+            </div>
             {pages.pages?.pages?.map((page:Page) => {
                 return (
                     <>
                     <Button variant="outline" asChild className="w-full">
                         <Link href={`/app/${page.slug}/overview`}>
                             {page.name}
-                            {/* <SquareArrowOutUpRight className="w-4 h-4 ml-2"/> */}
                         </Link>
                     </Button>
                     </>
                 )
             })}
-            <CreateNewPage />
-            </CardContent>
-        </Card>
+          </div>
+        </div>
         </div>
         </>
     )
