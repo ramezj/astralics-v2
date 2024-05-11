@@ -5,7 +5,7 @@ import { signIn } from "next-auth/react"
 export function GithubSignIn() {
     return (
         <>
-        <Button variant="outline" className="w-full" onClick={(() => {signIn("google", { callbackUrl: "/choose-page", redirect:true })})}>
+        <Button variant="outline" className="w-full" onClick={(() => {signIn("google", { callbackUrl: "/app", redirect:true })})}>
         <svg 
     viewBox="0 0 256 250"
     className="w-4 h-4 mr-2"
